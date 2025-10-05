@@ -1,0 +1,14 @@
+.product-card-container {
+  display: flex;
+}
+.product-card-image {
+  width: 500px;
+  height: 500px;
+  min-width: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+.product-card-details {
+  text-align: center;
+}

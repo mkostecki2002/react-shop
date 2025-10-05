@@ -1,0 +1,10 @@
+//Co dalej?
+-Zrobic ProductCard
+-Wystylizowac po tym całą strone i dodac footer
+-Dodawanie do koszyka
+-Jakas obsluga bledow
+
+
+-Trudniejsze-
+-Logowanie, rejestracja i skladanie zamowien
+-Panel admina

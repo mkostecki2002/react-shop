@@ -1,0 +1,8 @@
+.featured-categories-list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-grow: 1;
+  gap: 1em;
+  margin: 1em 0;
+}

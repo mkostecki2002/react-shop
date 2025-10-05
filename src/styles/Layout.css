@@ -1,0 +1,12 @@
+.container {
+  margin: 0 1em;
+}
+
+.error-banner {
+  background-color: #f44336; /* Red */
+  color: white;
+  text-align: center;
+  padding: 1em;
+  margin-bottom: 1em;
+  font-weight: bold;
+}

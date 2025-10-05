@@ -1,0 +1,16 @@
+.product-item {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 200px;
+  aspect-ratio: 1 / 1;
+  max-width: 300px;
+  min-width: 100px;
+  border: 1px solid #ccc;
+  margin: 1em;
+  text-align: center;
+}
+.product-item-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
