@@ -32,10 +32,10 @@ function AppProvider({ children }) {
     setErrorMessage(err.message);
     setErrorStatus(err.status);
     console.log("123:", err.status, err.message);
-    if (err.status === 404 || err.status === 0)
-      navigate("/error", {
-        state: { status: err.status, message: err.message },
-      });
+    // if (err.status === 404 || err.status === 0)
+    //   navigate("/error", {
+    //     state: { status: err.status, message: err.message },
+    //   });
     if (err.status === 403) {
       navigate("/login", {
         state: { status: err.status, message: err.message },

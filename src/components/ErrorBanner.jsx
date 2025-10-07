@@ -3,9 +3,9 @@ import { AppContext } from "../contexts/AppContext";
 import "../styles/ErrorBanner.css";
 
 function ErrorBanner() {
-  const { errorMessage, clearError } = useContext(AppContext);
+  const { errorMessage, errorStatus, clearError } = useContext(AppContext);
 
-  if (!errorMessage) return null;
+  if (errorStatus === 404 || errorStatus === 0 || !errorStatus) return null;
 
   return (
     <div className="error-banner">

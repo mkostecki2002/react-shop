@@ -20,7 +20,6 @@ function App() {
           <ScreenProvider>
             <CartProvider>
               <Routes>
-                <Route path="/error" element={<ErrorPage />} />
                 <Route path="/" element={<Layout />}>
                   <Route index element={<Home />} />
                   <Route path="/categories/:category" element={<Products />} />

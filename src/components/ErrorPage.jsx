@@ -1,15 +1,16 @@
-import { useLocation } from "react-router";
 import { AppContext } from "../contexts/AppContext";
+import "../styles/ErrorPage.css";
+import { useContext } from "react";
 
 function ErrorPage() {
-  const location = useLocation();
-  const { status, message } = location.state || {};
-
+  const { errorMessage, errorStatus } = useContext(AppContext);
   return (
-    <div className="error-page">
-      <h1>{`Błąd ${status}`}</h1>
-      <p>{message}</p>
-    </div>
+    (errorStatus === 0 || errorStatus === 404) && (
+      <div className="error-page">
+        <h1>{errorStatus}</h1>
+        <p>{errorMessage}</p>
+      </div>
+    )
   );
 }
 
