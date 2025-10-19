@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import "../styles/FilterProducts.css";
 
 function FilterProducts({ priceRange }) {
   const [minPrice, setMinPrice] = useState(priceRange.minPrice);

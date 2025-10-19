@@ -1,6 +1,5 @@
 import { useContext } from "react";
 import { CartContext } from "../contexts/CartContext";
-import "../styles/CartItem.css";
 
 function CartItem({ props }) {
   const { removeFromCart, updateQuantity } = useContext(CartContext);
@@ -17,7 +16,11 @@ function CartItem({ props }) {
         <button onClick={() => removeFromCart(props.id)}>Remove</button>
       </td>
       <td>
-        <img src={props.image} alt={props.name} className="cart-item-image" />
+        <img
+          src={props.image + "s"}
+          alt={props.name}
+          className="cart-item-image"
+        />
       </td>
       <td data-label="Product">{props.name}</td>
       <td data-label="Price">{props.price} zł</td>

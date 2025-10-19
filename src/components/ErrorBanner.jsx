@@ -1,6 +1,5 @@
 import { useContext } from "react";
 import { AppContext } from "../contexts/AppContext";
-import "../styles/ErrorBanner.css";
 
 function ErrorBanner() {
   const { errorMessage, errorStatus, clearError } = useContext(AppContext);

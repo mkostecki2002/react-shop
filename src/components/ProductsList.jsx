@@ -1,4 +1,3 @@
-import "../styles/ProductsList.css";
 import ProductItem from "./ProductItem";
 
 function ProductsList({ products }) {

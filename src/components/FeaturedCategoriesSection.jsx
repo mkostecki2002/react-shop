@@ -2,7 +2,6 @@ import { useContext, useEffect, useState } from "react";
 import { fetchAPI } from "../api/api";
 import FeaturedCategoryCard from "./FeaturedCategoryCard";
 import { AppContext } from "../contexts/AppContext";
-import "../styles/FeaturedCategoriesSection.css";
 
 function FeaturedCategoriesSection() {
   const [featuredCategories, setFeaturedCategories] = useState([]);
@@ -30,9 +29,9 @@ function FeaturedCategoriesSection() {
   }, []);
 
   return (
-    <div className="featured-categories-list">
+    <div className="row">
       {console.log(featuredCategories)}
-      {featuredCategories.map((featuredCategory) => (
+      {featuredCategories.map(featuredCategory => (
         <FeaturedCategoryCard
           key={featuredCategory.id}
           props={featuredCategory}

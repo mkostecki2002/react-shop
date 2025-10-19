@@ -2,17 +2,16 @@ import { useContext } from "react";
 import MyAccount from "./MyAccount";
 import { ScreenContext } from "../contexts/ScreenContext";
 import { Link } from "react-router-dom";
-import "../styles/Header.css";
 
 function Header() {
   const { isMobile } = useContext(ScreenContext);
 
   return (
     <header>
-      <div className="header">
-        <div className="logo">
+      <div className="d-flex flex-wrap align-items-center justify-content-around my-5">
+        <div>
           <Link to="/">
-            <img src="/logov2.png" alt="logo" className="img-logo" />
+            <img src="/logov1.png" alt="logo" className="rounded" />
           </Link>
         </div>
 
@@ -27,6 +26,7 @@ function Header() {
             <MyAccount />
             <Link to={"/cart"}>
               <div className="cart">
+                <i class="bi bi-cart"></i>
                 <p>Cart</p>
               </div>
             </Link>

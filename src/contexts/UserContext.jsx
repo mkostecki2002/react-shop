@@ -20,6 +20,7 @@ function UserProvider({ children }) {
     const response = await loginUser(loginRequest);
     if (response?.token) {
       setToken(response.token);
+      // sessionStorage.setItem("token", response.token);
     }
     return response;
   };
@@ -27,6 +28,7 @@ function UserProvider({ children }) {
   // LOGOUT
   const logout = () => {
     clearToken();
+    // sessionStorage.removeItem("token");
   };
 
   // REGISTER

@@ -1,9 +1,7 @@
-import "../styles/Header.css";
-
 function Menu() {
   return (
-    <div className="navbar-item">
-      <img src="/menu.png" />
+    <div className="nav-item">
+      <img src="/menus.png" />
       <p>menu</p>
     </div>
   );

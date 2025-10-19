@@ -1,13 +1,14 @@
 import { Link } from "react-router";
-import "../styles/ProductItem.css";
 
 function ProductItem({ product }) {
   return (
     <Link to={`/products/${product.id}`}>
-      <div className="product-item">
-        <img src={`/${product.image}`} className="product-item-image" />
-        <p className="product-item-name">{product.name}</p>
-        <p className="product-item-price">${product.price}</p>
+      <div className="card">
+        <img src={`/${product.image}`} className="card-image-top" />
+        <div className="card-body">
+          <p className="card-text">{product.name}</p>
+          <p className="card-text">${product.price}</p>
+        </div>
       </div>
     </Link>
   );

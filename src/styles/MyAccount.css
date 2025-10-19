@@ -1,9 +1,0 @@
-.account {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.account img {
-  width: 2em;
-}

@@ -1,5 +1,4 @@
 import { AppContext } from "../contexts/AppContext";
-import "../styles/ErrorPage.css";
 import { useContext } from "react";
 
 function ErrorPage() {

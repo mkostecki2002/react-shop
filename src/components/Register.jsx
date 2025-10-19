@@ -1,9 +1,8 @@
 import { useContext, useState } from "react";
-import "../styles/FormLoginRegister.css";
 import { UserContext } from "../contexts/UserContext";
 import { AppContext } from "../contexts/AppContext";
 
-function Register({ setIsLogin, setInfo }) {
+function Register({ setIsLoginForm, setInfo }) {
   const { register } = useContext(UserContext);
   const { handleError } = useContext(AppContext);
   const [firstName, setFirstName] = useState("");
@@ -12,23 +11,23 @@ function Register({ setIsLogin, setInfo }) {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
-  const handleChangeFirstName = (e) => {
+  const handleChangeFirstName = e => {
     setFirstName(e.target.value);
   };
-  const handleChangeLastName = (e) => {
+  const handleChangeLastName = e => {
     setLastName(e.target.value);
   };
-  const handleChangeEmail = (e) => {
+  const handleChangeEmail = e => {
     setEmail(e.target.value);
   };
-  const handleChangePassword = (e) => {
+  const handleChangePassword = e => {
     setPassword(e.target.value);
   };
-  const handleChangeConfirmPassword = (e) => {
+  const handleChangeConfirmPassword = e => {
     setConfirmPassword(e.target.value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = e => {
     e.preventDefault();
 
     register({
@@ -39,16 +38,19 @@ function Register({ setIsLogin, setInfo }) {
       confirmPassword: confirmPassword,
     })
       .then(() => {
-        setIsLogin(true);
+        setIsLoginForm(true);
         setInfo("Rejestracja przebiegła pomyślnie!");
       })
-      .catch((err) => {
+      .catch(err => {
         handleError(err);
       });
   };
 
   return (
-    <form className="register-form" onSubmit={handleSubmit}>
+    <form
+      className="d-flex flex-column justify-content-center"
+      onSubmit={handleSubmit}
+    >
       <input
         type="text"
         placeholder="first name"

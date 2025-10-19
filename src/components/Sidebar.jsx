@@ -1,5 +1,4 @@
 import FilterProducts from "./FilterProducts";
-import "../styles/Sidebar.css";
 
 function Sidebar({ priceRange }) {
   return (

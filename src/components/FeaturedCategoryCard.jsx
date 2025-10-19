@@ -1,14 +1,24 @@
 import { Link } from "react-router";
-import "../styles/FeaturedCategoryCard.css";
 
 function FeaturedCategoryCard({ props }) {
   return (
-    <Link to={`/categories/${props.name}`}>
-      <div className="featured-category-card">
-        <img src={props.image} className="featured-category-card-image" />
-        <p>{props.name}</p>
-      </div>
-    </Link>
+    <div className="col-md-4 mb-3">
+      <Link to={`/categories/${props.name}`}>
+        <div className="card h-100 shadow-sm">
+          <img
+            src={props.image}
+            className="card-img-top"
+            alt={props.name}
+            style={{ objectFit: "cover", height: 180 }}
+          />
+          <div className="card-body d-flex align-items-center justify-content-center">
+            <p className="mb-0 fw-semibold text-center text-dark">
+              {props.name}
+            </p>
+          </div>
+        </div>
+      </Link>
+    </div>
   );
 }
 

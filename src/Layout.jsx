@@ -4,11 +4,10 @@ import NavBar from "./components/NavBar.jsx";
 import ErrorBanner from "./components/ErrorBanner.jsx";
 import ErrorPage from "./components/ErrorPage.jsx";
 import LoadingOverlay from "./components/LoadingOverlay.jsx";
-import "./styles/Layout.css";
 
 function Layout() {
   return (
-    <div className="container">
+    <div className="container-fluid">
       <ErrorBanner />
       <LoadingOverlay />
       <ErrorPage />
