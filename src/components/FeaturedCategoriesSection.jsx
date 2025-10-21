@@ -4,8 +4,8 @@ import FeaturedCategoryCard from "./FeaturedCategoryCard";
 import { AppContext } from "../contexts/AppContext";
 
 function FeaturedCategoriesSection() {
-  const [featuredCategories, setFeaturedCategories] = useState([]);
   const { handleError, clearError, setIsLoading } = useContext(AppContext);
+  const [featuredCategories, setFeaturedCategories] = useState([]);
 
   useEffect(() => {
     const fetchCategories = async () => {
@@ -13,7 +13,7 @@ function FeaturedCategoriesSection() {
         setIsLoading(true);
         const data = await fetchAPI("categories/featured");
 
-        if (data.length > 0) {
+        if (Array.isArray(data) && data.length > 0) {
           setFeaturedCategories(data);
           clearError();
         }
@@ -26,14 +26,14 @@ function FeaturedCategoriesSection() {
     };
 
     fetchCategories();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
     <div className="row">
-      {console.log(featuredCategories)}
-      {featuredCategories.map(featuredCategory => (
+      {featuredCategories.map((featuredCategory, i) => (
         <FeaturedCategoryCard
-          key={featuredCategory.id}
+          key={featuredCategory.id ?? featuredCategory.name ?? `featured-${i}`}
           props={featuredCategory}
         />
       ))}

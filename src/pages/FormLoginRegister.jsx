@@ -2,16 +2,28 @@ import { useState, useContext } from "react";
 import { UserContext } from "../contexts/UserContext";
 import Login from "../components/Login";
 import Register from "../components/Register";
+import { AppContext } from "../contexts/AppContext";
 
 function FormLoginRegister() {
   const { isLogged } = useContext(UserContext);
+  const { errorMessage, clearError } = useContext(AppContext);
   const [info, setInfo] = useState(null);
   const [isLoginForm, setIsLoginForm] = useState(!isLogged());
 
-  const toggleForm = e => {
-    if (e && e.preventDefault) e.preventDefault();
+  const handleLoginButton = e => {
+    e.preventDefault();
     if (isLogged()) return;
-    setIsLoginForm(!isLoginForm);
+    setIsLoginForm(true);
+  };
+
+  const handleRegisterButton = e => {
+    e.preventDefault();
+    setInfo(null);
+    setIsLoginForm(false);
+  };
+
+  const handleCloseInfo = () => {
+    setInfo(null);
   };
 
   return (
@@ -22,7 +34,7 @@ function FormLoginRegister() {
             className={`nav-link ${isLoginForm && "active"} ${
               isLogged() && "disabled"
             }`}
-            onClick={toggleForm}
+            onClick={handleLoginButton}
           >
             LOGIN
           </span>
@@ -30,7 +42,7 @@ function FormLoginRegister() {
         <li className="nav-item px-3">
           <span
             className={`nav-link ${!isLoginForm && "active"}`}
-            onClick={toggleForm}
+            onClick={handleRegisterButton}
           >
             REGISTER
           </span>
@@ -55,7 +67,28 @@ function FormLoginRegister() {
         </div>
 
         <div className="col-12 col-md-6 p-4">
-          {info && <div className="form-result-information">{info}</div>}
+          {info && (
+            <div className="alert alert-success alert-dismissible" role="alert">
+              {info}
+              <button
+                type="button"
+                class="btn-close"
+                aria-label="Close"
+                onClick={handleCloseInfo}
+              ></button>
+            </div>
+          )}
+          {errorMessage && (
+            <div className="alert alert-danger alert-dismissible" role="alert">
+              {errorMessage}
+              <button
+                type="button"
+                class="btn-close"
+                aria-label="Close"
+                onClick={clearError}
+              ></button>
+            </div>
+          )}
 
           {isLoginForm && !isLogged() && <Login />}
           {!isLoginForm && (

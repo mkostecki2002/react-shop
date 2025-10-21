@@ -5,7 +5,7 @@ import { AppContext } from "../contexts/AppContext";
 
 function Login() {
   const { login } = useContext(UserContext);
-  const { handleError, setErrorMessage, setErrorStatus } =
+  const { handleError, setErrorMessage, setErrorStatus, setIsLoading } =
     useContext(AppContext);
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
@@ -25,12 +25,16 @@ function Login() {
       setErrorMessage("Invalid email or password!");
       setErrorStatus(400);
     } else {
+      setIsLoading(true);
       login({ email: email, password: password })
         .then(() => {
           navigate("/");
         })
         .catch(err => {
           handleError(err);
+        })
+        .finally(() => {
+          setIsLoading(false);
         });
     }
   };
@@ -64,7 +68,7 @@ function Login() {
         className="mb-3"
         onChange={handleChangePassword}
       />
-      <button className="button w-50 m-auto" type="submit">
+      <button className="btn btn-primary w-50 mx-auto" type="submit">
         Login
       </button>
     </form>

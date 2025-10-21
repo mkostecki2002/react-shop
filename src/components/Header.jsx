@@ -26,7 +26,7 @@ function Header() {
             <MyAccount />
             <Link to={"/cart"}>
               <div className="cart">
-                <i class="bi bi-cart"></i>
+                <i className="bi bi-cart"></i>
                 <p>Cart</p>
               </div>
             </Link>
