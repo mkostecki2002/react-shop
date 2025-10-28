@@ -25,7 +25,7 @@ function App() {
                   <Route path="/products/:id?" element={<ProductCard />} />
                   <Route path="/cart" element={<Cart />} />
                   <Route path="/login" element={<FormLoginRegister />} />
-                  <Route path="/me" element={<UserInfoPage />} />
+                  <Route path="/me/:section?" element={<UserInfoPage />} />
                 </Route>
               </Routes>
             </CartProvider>

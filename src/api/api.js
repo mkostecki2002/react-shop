@@ -62,10 +62,6 @@ export async function loginUser(loginRequest) {
   });
 }
 
-export async function getUserInfo(uuid) {
-  return await fetchAPI(`api/auth/customer/${uuid}`);
-}
-
 class ApiError extends Error {
   constructor(message, status) {
     super(message);
